@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GEOCODING_BASE_URL</key>
+	<string>https://$(GEOCODING_BASE_URL)</string>
+	<key>REVERSEGEOCODING_BASE_URL</key>
+	<string>https://$(REVERSEGEOCODING_BASE_URL)</string>
+	<key>WEATHER_API_KEY</key>
+	<string>$(WEATHER_API_KEY)</string>
+	<key>WEATHER_BASE_URL</key>
+	<string>https://$(WEATHER_BASE_URL)</string>
+</dict>
+</plist>
