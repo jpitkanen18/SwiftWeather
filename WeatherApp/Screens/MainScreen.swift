@@ -60,6 +60,10 @@ struct MainScreen: View {
                 Spacer()
             }
             .frame(maxHeight: .infinity, alignment: .top)
+            .animation(.snappy, value: isCelsius)
+            .animation(.easeInOut, value: inSearchMode)
+            .animation(.bouncy, value: weatherAPI.isLoading)
+            .animation(.bouncy, value: weatherAPI.isSearching)
         }
         .environmentObject(weatherAPI)
 

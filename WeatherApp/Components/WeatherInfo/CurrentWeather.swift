@@ -40,7 +40,7 @@ struct CurrentWeather: View {
 
 
 #Preview {
-    ZStack{
+    ZStack {
         BackgroundGradient().ignoresSafeArea()
         CurrentWeather(isCelsius: .constant(false))
             .environmentObject(WeatherAPI())

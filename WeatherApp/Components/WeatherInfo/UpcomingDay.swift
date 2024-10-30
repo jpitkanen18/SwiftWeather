@@ -23,7 +23,7 @@ struct UpcomingDay: View {
             HStack {
                 Text(NSDate(timeIntervalSince1970:(list?.dt!.doubleValue)!).toDayAndDateString())
                     .foregroundStyle(.white)
-                    .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 40))
+                    .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
                 Spacer()
                 VStack {
                     WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius))
