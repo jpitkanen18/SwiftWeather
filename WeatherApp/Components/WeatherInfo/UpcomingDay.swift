@@ -33,8 +33,9 @@ struct UpcomingDay: View {
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 80))
-                .clipped()
+                
             }
+            .clipped()
             
         }
         .animation(.bouncy, value: isOpen)
