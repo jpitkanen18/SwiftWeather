@@ -26,13 +26,14 @@ struct UpcomingDay: View {
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
                 Spacer()
                 VStack {
-                    WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius))
+                    WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius), isCelsius: $isCelsius)
                     if(index == isOpen) {
-                        WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius))
-                        WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius))
+                        WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius), isCelsius: $isCelsius)
+                        WeatherIconText(icon: .sun, value: (list?.main?.temp)!.covertFromKelvin(isCelsius: isCelsius), isCelsius: $isCelsius)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 80))
+                .clipped()
             }
             
         }

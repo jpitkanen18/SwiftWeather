@@ -13,7 +13,7 @@ struct BackgroundGradient: View {
 
     static let color0 = Color(red: 3/255, green: 39/255, blue: 92/255);
 
-    static let color1 = Color(red: 148/255, green: 71/255, blue: 0/255);
+    static let color1 = Color(red: 148/255, green: 71/255, blue: 0/255, opacity: 0.67);
 
 
     let gradient = Gradient(colors: [color0, color1]);

@@ -38,10 +38,10 @@ struct SearchBar: View {
                             searchStringPublisher.send(newString)
                         })
                         .onReceive(searchStringPublisher.debounce(for: .milliseconds(200), scheduler: DispatchQueue.main), perform: { newSearchString in
-                            Task {
-                                try await self.weatherAPI.fetchLocations(searchString: newSearchString)
-                            }
+                            self.weatherAPI.cancelGeocodingTasks()
+                            self.weatherAPI.fetchLocationsUI(searchString: newSearchString)
                         })
+                        
                     Image("Delete")
                         .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 20))
                         .opacity(searchString.isEmpty ? 0 : 1)

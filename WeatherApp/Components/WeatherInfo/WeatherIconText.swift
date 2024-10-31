@@ -18,13 +18,16 @@ struct WeatherIconText: View {
     
     var icon: WeatherIcon
     var value: Double
+    @Binding var isCelsius: Bool
     
     var body: some View {
         HStack{
             Image(icon.rawValue)
             Text(getText())
                 .foregroundStyle(.white)
+                .animation(nil, value: isCelsius)
         }
+        .animation(.bouncy, value: isCelsius)
     }
     
     func getText() -> String {
@@ -45,6 +48,6 @@ struct WeatherIconText: View {
 #Preview {
     ZStack {
         BackgroundGradient().ignoresSafeArea()
-        WeatherIconText(icon: .rain, value: -5)
+        WeatherIconText(icon: .rain, value: -5, isCelsius: .constant(true))
     }
 }

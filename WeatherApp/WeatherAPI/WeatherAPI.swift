@@ -25,6 +25,8 @@ public class WeatherAPI: ObservableObject {
     @Published var isLoading = false
     @Published var isHeaderLoading = false
     
+    var geocodingTasks: [String : Task<Void, Error>] = [:]
+    
     init() {
         if let key = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String {
             self.apiKey = key
@@ -71,6 +73,20 @@ public class WeatherAPI: ObservableObject {
         return urlBase.buildURL(apiKey: self.apiKey)
     }
     
+    @MainActor
+    func fetchLocationsUI(searchString: String) {
+        self.geocodingTasks[searchString] = Task {
+            try await self.fetchLocations(searchString: searchString)
+        }
+    }
+    
+    @MainActor
+    func cancelGeocodingTasks() {
+        for task in geocodingTasks {
+            task.value.cancel()
+        }
+    }
+    
    
     func fetchLocations(searchString: String) async throws -> Void {
         DispatchQueue.main.async {
@@ -115,7 +131,6 @@ public class WeatherAPI: ObservableObject {
             self.reverseGeocoding = decoded
             self.isHeaderLoading = false
         }
-        
     }
     
     func fetchWeather(lat: Double, lon: Double, home: Bool = false) async throws -> Void {

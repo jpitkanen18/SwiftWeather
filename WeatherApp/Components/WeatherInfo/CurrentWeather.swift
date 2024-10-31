@@ -26,10 +26,11 @@ struct CurrentWeather: View {
                         .font(Font.system(size: 16))
                         .foregroundStyle(.white)
                     HStack {
-                        WeatherIconText(icon: .warm, value: (weatherAPI.weather?.list!.first?.main?.tempMax!.covertFromKelvin(isCelsius: isCelsius)) ?? 32)
-                        WeatherIconText(icon: .cold, value: (weatherAPI.weather?.list!.first?.main?.tempMin!.covertFromKelvin(isCelsius: isCelsius)) ?? 32).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                        WeatherIconText(icon: .rain, value: 22) // Constant due to a lack of data
+                        WeatherIconText(icon: .warm, value: (weatherAPI.weather?.list!.first?.main?.tempMax!.covertFromKelvin(isCelsius: isCelsius)) ?? 32, isCelsius: $isCelsius)
+                        WeatherIconText(icon: .cold, value: (weatherAPI.weather?.list!.first?.main?.tempMin!.covertFromKelvin(isCelsius: isCelsius)) ?? 32, isCelsius: $isCelsius).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                        WeatherIconText(icon: .rain, value: 22, isCelsius: $isCelsius) // Constant due to a lack of data
                     }
+                    .animation(.bouncy, value: isCelsius)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
                     Upcoming(isCelsius: $isCelsius)
                 }
