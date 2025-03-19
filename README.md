@@ -1,4 +1,4 @@
-# Weather App
+# SwiftWeather
 
 To run this app, create a Config.xcconfig file with the following fields and your OpenWeatherMap api key
 ```sh
