@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchResults: View {
     @EnvironmentObject var weatherModel: WeatherModel
     @EnvironmentObject var appModel: AppModel
-   
+
     var body: some View {
         ScrollView {
             VStack(alignment: .trailing) {
@@ -44,5 +44,5 @@ struct SearchResults: View {
         BackgroundGradient().ignoresSafeArea()
         SearchResults()
     }
-   
+
 }

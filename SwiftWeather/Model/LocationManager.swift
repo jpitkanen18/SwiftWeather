@@ -10,18 +10,18 @@ import CoreLocation
 import Combine
 
 final class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
-    
+
     @Published var lastKnownLocation: CLLocationCoordinate2D?
     var manager = CLLocationManager()
-    
+
     override init() {
         super.init()
         manager.delegate = self
     }
-    
+
     func startUpdatingLocation() {
         manager.startUpdatingLocation()
-        
+
         switch manager.authorizationStatus {
             case .notDetermined:
                 manager.requestWhenInUseAuthorization()
@@ -32,11 +32,11 @@ final class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObje
                 print("Location service disabled")
         }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         startUpdatingLocation()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastKnownLocation = locations.first?.coordinate
     }

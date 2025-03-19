@@ -5,7 +5,6 @@
 //  Created by Jese on 19.3.2025.
 //
 
-
 import SwiftUI
 
 struct WeatherInfo: View {

@@ -13,4 +13,3 @@ extension NSDate {
         return "\(date.formatted(.dateTime.weekday(.wide))) \(date.formatted(.dateTime.day(.defaultDigits))).\(date.formatted(.dateTime.month(.defaultDigits)))"
     }
 }
-

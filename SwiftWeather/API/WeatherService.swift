@@ -14,7 +14,7 @@ class WeatherService {
     private let geoBase: String
     private let weatherBase: String
     private let reverseGeocodingBase: String
-    
+
     init() {
         guard let apiKey = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String else {
             fatalError("Weather API key not found in Info.plist")
@@ -33,7 +33,7 @@ class WeatherService {
         self.weatherBase = weatherBase
         self.reverseGeocodingBase = reverseGeocodingBase
     }
-    
+
     private func call<T: Decodable>(
         endpoint: URL,
         _ decoder: JSONDecoder = JSONDecoder()
@@ -44,14 +44,14 @@ class WeatherService {
             .decode(type: T.self, decoder: decoder)
             .eraseToAnyPublisher()
     }
-    
+
     func reverseGeocode(for location: CLLocationCoordinate2D) -> AnyPublisher<[GeocodingResponse], Error> {
         self.call(endpoint: location.buildLocationUrl(
             base: reverseGeocodingBase,
             apiKey: apiKey)
         )
     }
-    
+
     func geocode(for locationString: String) -> AnyPublisher<[GeocodingResponse], Error> {
         self.call(
             endpoint: locationString.buildGeocodingURL(
@@ -61,7 +61,7 @@ class WeatherService {
             )
         )
     }
-    
+
     func getWeather(for location: CLLocationCoordinate2D) -> AnyPublisher<WeatherResult, Error> {
         self.call(
             endpoint: location.buildLocationUrl(

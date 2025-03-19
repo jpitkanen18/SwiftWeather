@@ -10,4 +10,3 @@ extension Int {
     return Double(self)
   }
 }
-

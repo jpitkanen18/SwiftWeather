@@ -5,20 +5,17 @@
 //  Created by Jese on 19.3.2025.
 //
 
-
 import SwiftUI
 
 struct CurrentWeather: View {
-    
+
     @EnvironmentObject private var weatherModel: WeatherModel
     @EnvironmentObject private var appModel: AppModel
-    
+
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack(alignment: .center) {
-                if(
-                    weatherModel.weatherResult != nil && weatherModel.weatherResult?.list!.first != nil
-                ){
+                if weatherModel.weatherResult != nil && weatherModel.weatherResult?.list!.first != nil {
                     Text((weatherModel.weatherResult?.list!.first?.main?.temp!.covertFromKelvin(
                             isCelsius: appModel.units == .celsius)
                             .toSignedString()) ?? "+32")
@@ -54,7 +51,7 @@ struct CurrentWeather: View {
                                 trailing: 10
                             )
                         )
-                        WeatherIconText(icon: .rain, value:  weatherModel.weatherResult?.list!.first?.rain?.amount ?? 22.0)
+                        WeatherIconText(icon: .rain, value: weatherModel.weatherResult?.list!.first?.rain?.amount ?? 22.0)
                     }
                     .animation(.bouncy, value: appModel.units)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
@@ -64,7 +61,6 @@ struct CurrentWeather: View {
         }
     }
 }
-
 
 #Preview {
     ZStack {

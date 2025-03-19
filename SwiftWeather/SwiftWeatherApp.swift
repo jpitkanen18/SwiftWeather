@@ -16,9 +16,9 @@ struct SwiftWeatherApp: App {
         }
         .environmentObject(appModel)
         .environmentObject(locationManager)
-        
+
     }
-    
+
     @StateObject private var appModel = AppModel()
     @StateObject private var locationManager = LocationManager()
 }

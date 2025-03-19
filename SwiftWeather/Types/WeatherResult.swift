@@ -45,7 +45,7 @@ struct Clouds: Codable {
 
 struct Rain: Codable {
     let amount: Double?
-    
+
     enum CodingKeys: String, CodingKey {
         case amount = "3h"
     }

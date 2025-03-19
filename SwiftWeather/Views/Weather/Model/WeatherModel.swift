@@ -45,14 +45,14 @@ class WeatherModel: ObservableObject {
         }
     }
 
-    private var locationSink: AnyCancellable? = nil
-    
+    private var locationSink: AnyCancellable?
+
     private(set) var locationManager: EnvironmentObject<LocationManager>?
-    
+
     func setLocationManager(_ locationManager: EnvironmentObject<LocationManager>) {
         self.locationManager = locationManager
         self.locationManager?.wrappedValue.startUpdatingLocation()
-        
+
         locationSink = locationManager.wrappedValue.lastKnownLocation.publisher
             .sink(receiveValue: { newLocation in
                 print("here")
@@ -61,7 +61,7 @@ class WeatherModel: ObservableObject {
             self.locationSink = nil
         })
     }
-    
+
     func geocode(for locationString: String) {
         weatherService.geocode(for: locationString)
             .receive(on: DispatchQueue.main)
@@ -113,7 +113,7 @@ class WeatherModel: ObservableObject {
                     list: list,
                     city: response.city
                 )
-                
+
             }
             .store(in: &cancellables)
     }

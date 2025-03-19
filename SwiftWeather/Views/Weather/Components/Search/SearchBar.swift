@@ -9,10 +9,10 @@ import SwiftUI
 import Combine
 
 struct SearchBar: View {
-    
+
     @EnvironmentObject var weatherModel: WeatherModel
     @EnvironmentObject private var appModel: AppModel
-    
+
     var body: some View {
         HStack {
             ZStack(alignment: .leading) {
@@ -33,7 +33,7 @@ struct SearchBar: View {
                                 appModel.state = .search
                             }
                         })
-                        
+
                     Image("Delete")
                         .padding(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 20))
                         .opacity(weatherModel.searchString.isEmpty ? 0 : 1)
@@ -43,12 +43,12 @@ struct SearchBar: View {
                         }
                 }
         }.animation(.bouncy, value: appModel.state)
-        if(appModel.state == .search) {
+        if appModel.state == .search {
             Button(action: {
                 weatherModel.searchString = ""
                 weatherModel.selectedCity = nil
                 appModel.state = .default
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }, label: {
                 Text("Cancel")
             })
@@ -56,12 +56,10 @@ struct SearchBar: View {
         }
         }
         .padding()
-        
+
     }
 }
 
 #Preview {
     SearchBar().gradientBackground()
 }
-
-

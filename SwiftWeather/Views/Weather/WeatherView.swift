@@ -11,7 +11,7 @@ struct WeatherView: View {
     @EnvironmentObject private var appModel: AppModel
     @EnvironmentObject private var locationManager: LocationManager
     @StateObject private var weatherModel: WeatherModel = .init()
-    
+
     var body: some View {
         VStack {
             Header()

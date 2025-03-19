@@ -5,11 +5,10 @@
 //  Created by Jese on 19.3.2025.
 //
 
-
 import SwiftUI
 
 struct UpcomingDay: View {
-    
+
     var list: List?
     @Binding var isOpen: Int?
     var index: Int
@@ -21,7 +20,7 @@ struct UpcomingDay: View {
                 .stroke(Color.lightBlue)
                 .frame(height: isOpen == index ? 56 * 3 : 56)
             HStack {
-                Text(NSDate(timeIntervalSince1970:(list?.dt!.doubleValue)!).toDayAndDateString())
+                Text(NSDate(timeIntervalSince1970: (list?.dt!.doubleValue)!).toDayAndDateString())
                     .foregroundStyle(.white)
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 0))
                 Spacer()
@@ -33,7 +32,7 @@ struct UpcomingDay: View {
                                 isCelsius: appModel.units == .celsius
                             )
                     )
-                    if(index == isOpen) {
+                    if index == isOpen {
                         WeatherIconText(
                             icon: .warm,
                             value: (list?.main?.tempMax)!
@@ -51,15 +50,15 @@ struct UpcomingDay: View {
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
-                
+
             }
             .clipped()
-            
+
         }
         .animation(.bouncy, value: isOpen)
         .contentShape(Rectangle())
         .onTapGesture {
-            if(isOpen == index){
+            if isOpen == index {
                 isOpen = nil
             } else {
                 isOpen = index
@@ -69,7 +68,7 @@ struct UpcomingDay: View {
 }
 
 #Preview {
-    ZStack{
+    ZStack {
         BackgroundGradient().ignoresSafeArea()
         UpcomingDay(
             list: List(

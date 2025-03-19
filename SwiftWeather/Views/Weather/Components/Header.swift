@@ -5,17 +5,16 @@
 //  Created by Jese on 19.3.2025.
 //
 
-
 import SwiftUI
 
 struct Header: View {
     @EnvironmentObject private var appModel: AppModel
     @EnvironmentObject private var weatherModel: WeatherModel
-    
+
     var body: some View {
         VStack {
             HStack {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("Weather Site")
                         .font(Font.system(size: 20))
                         .fontWeight(.bold)
@@ -33,7 +32,7 @@ struct Header: View {
                         ProgressView()
                             .tint(.white)
                     }
-                   
+
                 }
                 Spacer()
                 UnitToggle()

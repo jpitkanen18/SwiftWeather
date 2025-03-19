@@ -20,6 +20,6 @@ enum Unit {
 class AppModel: ObservableObject {
     @Published var state: AppState = .default
     @Published var units: Unit = .celsius
-    
+
     init() { }
 }

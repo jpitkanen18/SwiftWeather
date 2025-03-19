@@ -8,38 +8,38 @@
 import SwiftUI
 
 struct UnitToggle: View {
-    
+
     @EnvironmentObject private var appModel: AppModel
-    
+
     var alignment: Alignment {
-        switch(appModel.units){
+        switch appModel.units {
             case .celsius: return .trailing
             case .fahrenheit: return .leading
         }
     }
-    
+
     var color: Color {
-        switch(appModel.units){
+        switch appModel.units {
             case .celsius: return Color.pastelGreen
             case .fahrenheit: return Color.gray
         }
     }
-    
+
     var opacityCelsius: Double {
-        switch(appModel.units){
+        switch appModel.units {
             case .celsius: return 1.0
             case .fahrenheit: return 0.0
         }
     }
-    
+
     var opacityFahrenheit: Double {
-        switch(appModel.units){
+        switch appModel.units {
             case .celsius: return 0.0
             case .fahrenheit: return 1.0
         }
     }
-    
-    var body: some View{
+
+    var body: some View {
         ZStack(alignment: alignment) {
             Capsule()
                 .fill(color)
@@ -52,10 +52,10 @@ struct UnitToggle: View {
                 Spacer()
                 Text("F°")
                     .opacity(opacityFahrenheit)
-                    .animation(.easeInOut, value:  appModel.units)
+                    .animation(.easeInOut, value: appModel.units)
             }
             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10.0))
-            .frame(width: 65.0,height: 30.0)
+            .frame(width: 65.0, height: 30.0)
             Circle().fill(Color.white)
                 .frame(width: 28.0, height: 28.0)
                 .padding(EdgeInsets(top: 0, leading: 1, bottom: 0, trailing: 3.0))
@@ -69,11 +69,9 @@ struct UnitToggle: View {
                     appModel.units = .celsius
             }
         }
-       
+
     }
 }
-
-
 
 #Preview {
     UnitToggle().environmentObject(AppModel())

@@ -5,7 +5,6 @@
 //  Created by Jese on 19.3.2025.
 //
 
-
 import SwiftUI
 
 enum WeatherIcon: String, Decodable, Encodable {
@@ -16,14 +15,14 @@ enum WeatherIcon: String, Decodable, Encodable {
 }
 
 struct WeatherIconText: View {
-    
+
     var icon: WeatherIcon
     var value: Double
-    
+
     @EnvironmentObject private var appModel: AppModel
-    
+
     var body: some View {
-        HStack{
+        HStack {
             Image(icon.rawValue)
             Text(getText())
                 .foregroundStyle(.white)
@@ -31,9 +30,9 @@ struct WeatherIconText: View {
         }
         .animation(.bouncy, value: appModel.units)
     }
-    
+
     func getText() -> String {
-        switch(icon) {
+        switch icon {
             case .cold:
                 return "Min \(value.toSignedString())"
             case .warm:
@@ -45,7 +44,6 @@ struct WeatherIconText: View {
         }
     }
 }
-
 
 #Preview {
     ZStack {

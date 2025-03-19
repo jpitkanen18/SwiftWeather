@@ -11,7 +11,7 @@ struct SearchItem: View {
     @Binding var searchInput: String
     var geocodingItem: GeocodingResponse
     var body: some View {
-        HStack{
+        HStack {
             Text(
                 LocalizedStringKey(
                     geocodingItem.displayString
