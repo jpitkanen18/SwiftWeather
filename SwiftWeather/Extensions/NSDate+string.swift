@@ -10,6 +10,9 @@ import Foundation
 extension NSDate {
     func toDayAndDateString() -> String {
         let date = self as Date
-        return "\(date.formatted(.dateTime.weekday(.wide))) \(date.formatted(.dateTime.day(.defaultDigits))).\(date.formatted(.dateTime.month(.defaultDigits)))"
+        let weekday = date.formatted(.dateTime.weekday(.wide))
+        let day = date.formatted(.dateTime.day(.defaultDigits))
+        let month = date.formatted(.dateTime.month(.defaultDigits))
+        return "\(weekday) \(day).\(month)"
     }
 }

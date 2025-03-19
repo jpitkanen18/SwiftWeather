@@ -30,8 +30,5 @@ struct Upcoming: View {
 }
 
 #Preview {
-    ZStack {
-        BackgroundGradient().ignoresSafeArea()
-        Upcoming().environmentObject(WeatherModel())
-    }
+    Upcoming().environmentObject(WeatherModel()).gradientBackground()
 }

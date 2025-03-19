@@ -26,7 +26,8 @@ struct CurrentWeather: View {
                         .fontWeight(.bold)
                         .font(Font.system(size: 30))
                         .foregroundStyle(.white)
-                    Text(weatherModel.weatherResult?.list!.first?.weather?.first?.description?.capitalized ?? "Sunny and hot")
+                    Text(weatherModel.weatherResult?.list!.first?.weather?.first?.description?.capitalized
+                         ?? "Sunny and hot")
                         .fontWeight(.light)
                         .font(Font.system(size: 16))
                         .foregroundStyle(.white)
@@ -51,7 +52,10 @@ struct CurrentWeather: View {
                                 trailing: 10
                             )
                         )
-                        WeatherIconText(icon: .rain, value: weatherModel.weatherResult?.list!.first?.rain?.amount ?? 22.0)
+                        WeatherIconText(
+                            icon: .rain,
+                            value: weatherModel.weatherResult?.list!.first?.rain?.amount ?? 22.0
+                        )
                     }
                     .animation(.bouncy, value: appModel.units)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))

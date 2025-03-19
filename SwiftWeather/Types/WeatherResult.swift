@@ -28,12 +28,14 @@ struct Coord: Codable {
 
 // MARK: - List
 struct List: Codable {
+    // swiftlint:disable:next identifier_name
     let dt: Int?
     let main: Main?
     let weather: [Weather]?
     let rain: Rain?
 
     enum CodingKeys: String, CodingKey {
+        // swiftlint:disable:next identifier_name
         case dt, main, weather, rain
     }
 }

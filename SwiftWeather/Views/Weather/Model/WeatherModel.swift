@@ -65,6 +65,7 @@ class WeatherModel: ObservableObject {
     func geocode(for locationString: String) {
         weatherService.geocode(for: locationString)
             .receive(on: DispatchQueue.main)
+            // swiftlint:disable:next multiple_closures_with_trailing_closure
             .sink(receiveCompletion: { _ in }) {
                 var displayStrings: Set<String> = []
                 self.geocodingResults = $0.filter {
@@ -83,6 +84,7 @@ class WeatherModel: ObservableObject {
         self.isLocationLoading = true
         weatherService.reverseGeocode(for: location)
             .receive(on: DispatchQueue.main)
+            // swiftlint:disable:next multiple_closures_with_trailing_closure
             .sink(receiveCompletion: { _ in  self.isLocationLoading = false }) { response in
                 print(response)
                 self.currentLocationString = response[0].displayString
@@ -94,6 +96,7 @@ class WeatherModel: ObservableObject {
         self.isWeatherLoading = true
         weatherService.getWeather(for: location)
             .receive(on: DispatchQueue.main)
+            // swiftlint:disable:next multiple_closures_with_trailing_closure
             .sink(receiveCompletion: { _ in  self.isWeatherLoading = false }) { response in
                 var dateStrings: Set<String> = []
                 // Hack to get rid of dupes, blame me if you will
@@ -113,7 +116,6 @@ class WeatherModel: ObservableObject {
                     list: list,
                     city: response.city
                 )
-
             }
             .store(in: &cancellables)
     }

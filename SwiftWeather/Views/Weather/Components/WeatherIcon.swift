@@ -33,14 +33,14 @@ struct WeatherIconText: View {
 
     func getText() -> String {
         switch icon {
-            case .cold:
-                return "Min \(value.toSignedString())"
-            case .warm:
-                return "Max \(value.toSignedString())"
-            case .sun:
-                return value.toSignedString()
-            case .rain:
-                return "Rain \(value) mm"
+        case .cold:
+            return "Min \(value.toSignedString())"
+        case .warm:
+            return "Max \(value.toSignedString())"
+        case .sun:
+            return value.toSignedString()
+        case .rain:
+            return "Rain \(value) mm"
         }
     }
 }

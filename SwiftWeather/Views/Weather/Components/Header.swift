@@ -32,7 +32,6 @@ struct Header: View {
                         ProgressView()
                             .tint(.white)
                     }
-
                 }
                 Spacer()
                 UnitToggle()

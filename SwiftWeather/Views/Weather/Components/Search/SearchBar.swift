@@ -42,13 +42,20 @@ struct SearchBar: View {
                             weatherModel.searchString = ""
                         }
                 }
-        }.animation(.bouncy, value: appModel.state)
+        }
+        .animation(.bouncy, value: appModel.state)
+
         if appModel.state == .search {
             Button(action: {
                 weatherModel.searchString = ""
                 weatherModel.selectedCity = nil
                 appModel.state = .default
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                UIApplication.shared.sendAction(
+                    #selector(UIResponder.resignFirstResponder),
+                    to: nil,
+                    from: nil,
+                    for: nil
+                )
             }, label: {
                 Text("Cancel")
             })
@@ -56,7 +63,6 @@ struct SearchBar: View {
         }
         }
         .padding()
-
     }
 }
 

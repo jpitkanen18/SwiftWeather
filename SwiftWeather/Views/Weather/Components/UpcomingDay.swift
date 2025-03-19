@@ -50,10 +50,8 @@ struct UpcomingDay: View {
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
-
             }
             .clipped()
-
         }
         .animation(.bouncy, value: isOpen)
         .contentShape(Rectangle())
@@ -68,18 +66,16 @@ struct UpcomingDay: View {
 }
 
 #Preview {
-    ZStack {
-        BackgroundGradient().ignoresSafeArea()
-        UpcomingDay(
-            list: List(
-                dt: 1415637900,
-                main: Main(temp: 69, tempMin: 420, tempMax: 6969),
-                weather: nil,
-                rain: nil
-            ),
-            isOpen: .constant(nil),
-            index: 0
-        )
-        .environmentObject(AppModel())
-    }
+    UpcomingDay(
+        list: List(
+            dt: 1415637900,
+            main: Main(temp: 69, tempMin: 420, tempMax: 6969),
+            weather: nil,
+            rain: nil
+        ),
+        isOpen: .constant(nil),
+        index: 0
+    )
+    .environmentObject(AppModel())
+    .gradientBackground()
 }

@@ -23,13 +23,13 @@ final class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObje
         manager.startUpdatingLocation()
 
         switch manager.authorizationStatus {
-            case .notDetermined:
-                manager.requestWhenInUseAuthorization()
-            case .authorizedWhenInUse, .authorizedAlways:
-                lastKnownLocation = manager.location?.coordinate
-            case .denied, .restricted: break
-            @unknown default:
-                print("Location service disabled")
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            lastKnownLocation = manager.location?.coordinate
+        case .denied, .restricted: break
+        @unknown default:
+            print("Location service disabled")
         }
     }
 

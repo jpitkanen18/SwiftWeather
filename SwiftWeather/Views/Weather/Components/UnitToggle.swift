@@ -13,29 +13,29 @@ struct UnitToggle: View {
 
     var alignment: Alignment {
         switch appModel.units {
-            case .celsius: return .trailing
-            case .fahrenheit: return .leading
+        case .celsius: return .trailing
+        case .fahrenheit: return .leading
         }
     }
 
     var color: Color {
         switch appModel.units {
-            case .celsius: return Color.pastelGreen
-            case .fahrenheit: return Color.gray
+        case .celsius: return Color.pastelGreen
+        case .fahrenheit: return Color.gray
         }
     }
 
     var opacityCelsius: Double {
         switch appModel.units {
-            case .celsius: return 1.0
-            case .fahrenheit: return 0.0
+        case .celsius: return 1.0
+        case .fahrenheit: return 0.0
         }
     }
 
     var opacityFahrenheit: Double {
         switch appModel.units {
-            case .celsius: return 0.0
-            case .fahrenheit: return 1.0
+        case .celsius: return 0.0
+        case .fahrenheit: return 1.0
         }
     }
 
@@ -63,13 +63,12 @@ struct UnitToggle: View {
         }
         .onTapGesture {
             switch appModel.units {
-                case .celsius:
-                    appModel.units = .fahrenheit
-                case .fahrenheit:
-                    appModel.units = .celsius
+            case .celsius:
+                appModel.units = .fahrenheit
+            case .fahrenheit:
+                appModel.units = .celsius
             }
         }
-
     }
 }
 

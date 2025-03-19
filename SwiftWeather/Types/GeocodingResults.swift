@@ -22,6 +22,7 @@ struct GeocodingResponse: Codable {
 }
 
 // MARK: - LocalNames
+// swiftlint:disable identifier_name
 struct LocalNames: Codable {
     let ar, ka, fr, hy: String?
     let uk, sr, de, ru: String?
@@ -30,5 +31,6 @@ struct LocalNames: Codable {
     let zh, hu, mk, bg: String?
     let cs, la, th: String?
 }
+// swiftlint:enable identifier_name
 
 typealias GeocodingResults = [GeocodingResponse]

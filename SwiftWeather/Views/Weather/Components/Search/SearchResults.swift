@@ -44,5 +44,4 @@ struct SearchResults: View {
         BackgroundGradient().ignoresSafeArea()
         SearchResults()
     }
-
 }

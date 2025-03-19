@@ -26,7 +26,11 @@ private struct GradientBackground: ViewModifier {
 
 struct BackgroundGradient: View {
 
-    let gradient = Gradient(colors: [Color.gradientOrange, Color.darkBlue])
+    let gradient = Gradient(
+        colors: [
+            Color.gradientOrange, Color.darkBlue
+        ]
+    )
 
     var body: some View {
         Rectangle()

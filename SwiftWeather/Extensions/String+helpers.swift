@@ -30,16 +30,14 @@ extension String {
         }
         let substring = self[..<ranges[0].lowerBound]
         let substring2 = self[ranges[0].upperBound...]
-
         return  "\(substring)**\(trimmed)**\(substring2)"
-
     }
 
     func countryCodeToName() -> String {
         let id: String = Locale.identifier(fromComponents: [
             NSLocale.Key.countryCode.rawValue: self
         ])
-        guard let name = (Locale.current as NSLocale).displayName(forKey: .identifier, value: id) else { return self}
+        guard let name = (Locale.current as NSLocale).displayName(forKey: .identifier, value: id) else { return self }
         return name
     }
 }
